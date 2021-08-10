@@ -11,6 +11,7 @@ export const TopDiv = styled.div`
     display: flex;
     align-items: center;
     font-family: 'Lato', sans-serif;
+    z-index: 1;
 `;
 
 export const TopSide = styled.div`
@@ -90,7 +91,7 @@ export const HeaderTitleLg = styled.span`
 export const HeaderImage = styled.img`
     width: 100%;
     height: 600px;
-    object-fit: over;
+    object-fit: cover;
 `;
 
 /* Home */
@@ -99,10 +100,13 @@ export const HomeDiv = styled.div`
     display: flex;
 `;
 
-/* Post */
+/* Posts */
 
 export const PostsDiv = styled.div`
     flex: 9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
 `;
 
 /* Sidebar */
@@ -174,4 +178,130 @@ export const SidebarSocial = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`;
+
+/* Post */
+
+export const PostDiv = styled.div`
+    width: 385px;
+    margin: 0 25px 40px 25px;
+`;
+
+export const PostImg = styled.img`
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 7px;
+`;
+
+export const PostInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const PostCat = styled.span`
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #be9656;
+    line-height: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+`;
+
+export const PostTitle = styled.span`
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+`;
+
+export const PostDate = styled.span`
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #999;
+    margin-top: 15px;
+`;
+
+export const PostDesc = styled.p`
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #444;
+    line-height: 24px;
+    margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+`;
+
+/* Single Post */
+
+export const SinglePostDiv = styled.div`
+    flex: 9;
+`;
+
+export const SinglePostImg = styled.img`
+    width:100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+`;
+
+export const SinglePostWrapper = styled.div`
+    padding: 20px;
+    padding-rght: 0;
+`;
+
+export const SinglePostTitle = styled.h1`
+    font-family: 'Lato', sans-serif;
+    margin: 10px;
+    text-align: center;
+    font-size: 28px;
+`;
+
+export const SingePostEdit = styled.div`
+    float: right;
+    font-size: 16px;
+`;
+
+export const SinglePostIcon = styled.i`
+    cursor: pointer;
+    margin-left: 10px;
+    &:first-child {
+        color: teal;
+    }
+    &:last-child {
+        color: tomato;
+    }
+`;
+
+export const SinglePostInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #b39656;
+    font-family: 'Lato', sans-serif;
+`;
+
+export const SinglePostDesc = styled.div`
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+    &::first-letter {
+        margin-left: 20px;
+        font-size: 30px;
+        font-weight: 600;
+    }
+`;
+
+/* Landing */
+
+export const LandingDiv = styled.div`
+    display: flex;
 `;

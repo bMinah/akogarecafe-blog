@@ -1,6 +1,6 @@
-import Header from "../../header/Header"
-import SideBar from "../../sidebar/Sidebar"
-import Posts from "../../posts/Posts"
+import Header from "../../components/header/Header"
+import Posts from "../../components/posts/Posts"
+import SideBar from "../../components/sidebar/Sidebar"
 import { HomeDiv } from "../../style"
 
 export default function Home(){
