@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CoffeeBackground from "../src/images/coffeeBackground2.jpg";
 
 /* Top Bar */ 
 
@@ -461,4 +462,58 @@ export const SettingsSubmit = styled.button`
     padding: 10px;
     margin-top: 20px;
     cursor: pointer;
+`;
+
+/* Login/Register */
+
+export const LoginDiv = styled.div`
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255,255,255, 0.5),rgba(255,255,255, 0.5)), url(${CoffeeBackground});
+    background-size: cover;
+`;
+
+export const LoginTitle = styled.span`
+    font-size: 50px;
+`;
+
+export const LoginForm = styled.form`
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const LoginFormLabel = styled.label`
+    margin:10px 0;
+`;
+
+export const LoginInput = styled.input`
+    background-color: white;
+    padding: 10px;
+    border: none;
+`;
+
+export const LoginButton = styled.button`
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 165px;
+`;
+
+export const RegisterButton = styled.button`
+    margin-top: 10px;
+    background-color: blue;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px; 
+    width: 165px;
 `;
