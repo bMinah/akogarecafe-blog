@@ -104,9 +104,9 @@ export const HomeDiv = styled.div`
 /* Posts */
 
 export const PostsDiv = styled.div`
-    flex: 9;
     display: flex;
     flex-wrap: wrap;
+    flex: 9;
     margin: 20px;
 `;
 
@@ -184,8 +184,8 @@ export const SidebarSocial = styled.div`
 /* Post */
 
 export const PostDiv = styled.div`
-    width: 385px;
-    margin: 0 25px 40px 25px;
+    width: 46%;
+    margin: 0 2% 40px 2%;
 `;
 
 export const PostImg = styled.img`

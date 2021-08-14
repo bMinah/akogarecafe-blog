@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
 import { TopDiv, TopSide, TopIcon, TopCenter, TopList, TopListItem, ProfileImage, TopSearchIcon } from "../../style";
 import profileImage from "../../images/profile.jpg"
 
 export default function TopBar() {
+    const user = false;
     return (
         <TopDiv>
             <TopSide>
@@ -13,24 +15,35 @@ export default function TopBar() {
             <TopCenter>
                     <TopList>
                         <TopListItem>
-                            Home
+                            <Link className="link" to="/">Home</Link>
                         </TopListItem>
                         <TopListItem>
-                            About
+                            <Link className="link" to="/about">About</Link>
                         </TopListItem>
                         <TopListItem>
-                            Contact
+                            <Link className="link" to="/contact">Contact</Link>
                         </TopListItem>
                         <TopListItem>
-                            Write
+                            <Link className="link" to="/write">Write</Link>
                         </TopListItem>
                         <TopListItem>
-                            Logout
+                            {user && "Logout"}
                         </TopListItem>
                     </TopList>
             </TopCenter>
             <TopSide>
-                <ProfileImage src={profileImage} alt=""/>
+                {user ? (
+                    <ProfileImage src={profileImage} alt=""/>
+                )  : (
+                    <TopList>
+                        <TopListItem>
+                            <Link className="link" to="/login">Login</Link>
+                        </TopListItem>
+                        <TopListItem>
+                            <Link className="link" to="/register">Register</Link>
+                        </TopListItem>
+                    </TopList>
+                ) }
                 <TopSearchIcon className="fas fa-search"></TopSearchIcon>
             </TopSide>
         </TopDiv>

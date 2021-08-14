@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { LoginButton, LoginDiv, LoginForm, LoginFormLabel, LoginInput, LoginTitle, RegisterButton } from "../../style";
 
 export default function Register() {
@@ -13,7 +14,7 @@ export default function Register() {
                 <LoginInput type="password" placeholder="Enter your password..."/>
                 <LoginButton>Register</LoginButton>
             </LoginForm>
-            <RegisterButton>Back</RegisterButton>
+            <RegisterButton><Link className="link" to="/login">Back</Link></RegisterButton>
         </LoginDiv>
     )
 }
