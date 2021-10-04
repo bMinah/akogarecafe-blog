@@ -1,5 +1,4 @@
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
@@ -7,8 +6,15 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories")
 const multer = require("multer");
+const cors = require('cors');
+
+const app = express();
+app.use(cors({
+    origin: '*'
+}));
 
 dotenv.config();
+// Send json object inside body
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL, {
@@ -17,6 +23,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useCreateIndex: true
 }).then(console.log("Connected to MONGODB")).catch((err) => console.log(err));
 
+/* Upload file rest api */
 const storage = multer.diskStorage({
     destination:(req,file,cb) =>{
         cb(null, "images")
@@ -30,6 +37,7 @@ app.post("/api/upload", upload.single("file"),(req,res)=>{
     res.status(200).json("File has been uploaded");
 });
 
+/* routers */
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
