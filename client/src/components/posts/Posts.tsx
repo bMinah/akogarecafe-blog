@@ -1,14 +1,17 @@
 import Post from "../post/Post";
 import { PostsDiv } from "../../style";
 
-export default function Posts() {
+interface PostsProps {
+    posts: any
+}
+
+export default function Posts({posts}: PostsProps) {
     return (
-        <PostsDiv>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+        <PostsDiv /* for each post, call post component */>
+            {posts.map((p: any) => (
+                <Post /* Each child in a list should have a unique "key" prop */ key={p.title} 
+                /* pass posts properties to post */ post={p} />
+            ))}
         </PostsDiv>
     )
 }

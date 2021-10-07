@@ -1,7 +1,11 @@
 import { SingePostEdit, SinglePostDesc, SinglePostDiv, SinglePostIcon, SinglePostImg, SinglePostInfo, SinglePostTitle, SinglePostWrapper } from "../../style";
 import LatteCup from "../../images/latteCup.jpg";
+import { useLocation } from "react-router";
 
 export default function SinglePost(){
+    /* fetch data according to id */
+    const location = useLocation();
+    const path = location.pathname.split("/")[2];
     return (
         <SinglePostDiv>
             <SinglePostWrapper>

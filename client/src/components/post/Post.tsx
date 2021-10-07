@@ -1,22 +1,31 @@
 import { PostDiv, PostImg, PostInfo, PostCat, PostTitle, PostDate, PostDesc } from "../../style"
-import Latte from "../../images/latteCup.jpg"
+import { Link } from "react-router-dom"
 
-export default function Post() {
+interface PostProps {
+    post: any
+}
+
+export default function Post({post}: PostProps) {
     return (
         <PostDiv>
-            <PostImg src={Latte} alt=""/>
+            {post.photo && (
+                <PostImg src={post.photo} alt=""/>
+            )}
             <PostInfo>
                 <div className="postCats">
-                    <PostCat>Anime</PostCat>
-                    <PostCat>Game</PostCat>
+                    <PostCat>{post.categories.map((c: any) => (
+                        <span>{c.name}</span>
+                    ))}</PostCat>
                 </div>
-                <PostTitle>
-                    Lorem ipsum dolor sit amet
-                </PostTitle>
+                <Link to={`/post/${post._id}`} className="link">
+                    <PostTitle>
+                        {post.title}
+                    </PostTitle>
+                </Link>
                 <hr/>
-                <PostDate>1 Hour ago</PostDate>
+                <PostDate>{new Date(post.createdAt).toDateString()}</PostDate>
             </PostInfo>
-            <PostDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, assumenda quis. Ut veritatis laudantium, voluptatum repellat voluptatibus sunt accusamus perferendis nemo animi vitae sint, sapiente ipsum id quae officiis aut!</PostDesc>
+            <PostDesc>{post.desc}</PostDesc>
         </PostDiv>
     )
 }
