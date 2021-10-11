@@ -466,6 +466,10 @@ export const SettingsSubmit = styled.button`
 
 /* Login/Register */
 
+export const StyledInput = styled.input`
+    background-color: white;
+`;
+
 export const LoginDiv = styled.div`
     height: calc(100vh - 50px);
     display: flex;
