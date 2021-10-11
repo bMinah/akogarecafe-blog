@@ -6,14 +6,14 @@ import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Landing from "./pages/landing/Landing";
 
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   //test user
   const user = false;
   return (
     <Router>
-      <TopBar/>
+      <TopBar />
       <Switch>
         <Route exact path="/">
           <Home />
