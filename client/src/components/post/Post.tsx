@@ -1,4 +1,4 @@
-import { PostDiv, PostImg, PostInfo, PostCat, PostTitle, PostDate, PostDesc } from "../../style"
+import { PostDiv, PostImg, PostInfo, PostCat, PostTitle, PostDate, PostDesc } from "../../style.js";
 import { Link } from "react-router-dom"
 
 interface PostProps {

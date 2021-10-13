@@ -1,7 +1,20 @@
 import { SideBarDiv, SidebarIcon, SidebarImage, SidebarItem, SideBarList, SidebarListItem, SidebarText, SidebarTitle } from "../../style";
 import sidebarImage from "../../images/sidebar.jpg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function SideBar() {
+  const [cats, setCats] = useState([]);
+
+  useEffect(()=>{
+    const getCats = async ()=>
+    {
+      const res = await axios.get("http://localhost:5000/api/categories");
+      setCats(res.data);
+    };
+    getCats();
+  }, []);  
   return (
     <SideBarDiv>
       <SidebarItem>
@@ -14,13 +27,12 @@ export default function SideBar() {
       </SidebarItem>
       <SidebarItem>
         <SidebarTitle>Categories</SidebarTitle>
-        <SideBarList className="sidebarList">
-          <SidebarListItem>Anime</SidebarListItem>
-          <SidebarListItem>Cinema</SidebarListItem>
-          <SidebarListItem>Game</SidebarListItem>
-          <SidebarListItem>Music</SidebarListItem>
-          <SidebarListItem>Sports</SidebarListItem>
-          <SidebarListItem>Tech</SidebarListItem>
+        <SideBarList /* for each post, call post component */ className="sidebarList">
+          {cats.map((c: any) => (
+            <Link to={`/?cat=${c.name}`}className="link">
+              <SidebarListItem key={c.name}>{c.name}</SidebarListItem>
+            </Link>
+          ))}
         </SideBarList>
       </SidebarItem>
       <SidebarItem>
