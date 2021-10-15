@@ -7,10 +7,11 @@ import Settings from "./pages/settings/Settings";
 import Landing from "./pages/landing/Landing";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Context } from "./context/Context";
+import { useContext } from "react";
 
 function App() {
-  //test user
-  const user = false;
+  const {user} = useContext(Context);
   return (
     <Router>
       <TopBar />

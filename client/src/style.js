@@ -509,6 +509,10 @@ export const LoginButton = styled.button`
     border-radius: 10px;
     padding: 10px;
     width: 165px;
+    :disabled {
+        cursor: not-allowed;
+        background-color: gray;
+    }
 `;
 
 export const RegisterButton = styled.button`

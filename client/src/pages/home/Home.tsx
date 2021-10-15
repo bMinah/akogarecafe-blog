@@ -16,7 +16,6 @@ export default function Home(){
         const fetchPosts = async () =>{
             const res = await axios.get("http://localhost:5000/api/posts"+search)
             setPosts(res.data)
-            console.log(posts);
         }
         fetchPosts()
     },[search])

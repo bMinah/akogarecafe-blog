@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom"
 import { TopDiv, TopSide, TopIcon, TopCenter, TopList, TopListItem, ProfileImage, TopSearchIcon } from "../../style";
 import profileImage from "../../images/profile.jpg"
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 export default function TopBar() {
-    const user = false;
+    // @ts-ignore
+    const {user, dispatch} = useContext(Context);
+
+    const handleLogout = () => {
+        dispatch({type: "LOGOUT"});
+        // @kavy do I need this, sometimes it refreshes, sometimes it doesn't
+        window.location.replace("/login");
+    };
     return (
         <TopDiv>
             <TopSide>
@@ -26,14 +35,14 @@ export default function TopBar() {
                         <TopListItem>
                             <Link className="link" to="/write">Write</Link>
                         </TopListItem>
-                        <TopListItem>
+                        <TopListItem onClick={handleLogout}>
                             {user && "Logout"}
                         </TopListItem>
                     </TopList>
             </TopCenter>
             <TopSide>
                 {user ? (
-                    <ProfileImage src={profileImage} alt=""/>
+                    <ProfileImage src={user.profilePic || profileImage} alt=""/>
                 )  : (
                     <TopList>
                         <TopListItem>
